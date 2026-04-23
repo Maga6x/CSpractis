@@ -56,10 +56,10 @@ public class TaskWorker implements Runnable {
                     : xmlToJson(task.getInputData());
 
             taskRepository.updateResult(taskId, result, TaskStatus.DONE.name());
-            System.out.printf("[Worker] Done       task %s%n", taskId);
+            System.out.printf("Worker Done task %s%n", taskId);
 
         } catch (Exception e) {
-            System.err.printf("[Worker] Error on task %s: %s%n", taskId, e.getMessage());
+            System.err.printf("Worker Error on task %s: %s%n", taskId, e.getMessage());
             try {
                 taskRepository.updateStatus(taskId, TaskStatus.ERROR.name());
             } catch (Exception ex) {
