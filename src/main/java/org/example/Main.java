@@ -23,11 +23,9 @@ public class Main {
         String password = "postgres";
 
         Connection connection = DriverManager.getConnection(url, user, password);
-
         SchemaInitializer.init(connection);
 
         BlockingQueue<UUID> queue = new LinkedBlockingQueue<UUID>();
-
         TaskRepository taskRepository = new TaskRepository(connection);
         TaskService taskService = new TaskService(taskRepository, queue);
 
