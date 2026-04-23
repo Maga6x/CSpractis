@@ -28,7 +28,7 @@ public class TaskService {
             taskRepository.save(task);
             queue.put(task.getId());
         } catch (Exception e) {
-            throw new RuntimeException("Failed to create task", e);
+            throw new RuntimeException("Failed", e);
         }
 
         return task.getId();

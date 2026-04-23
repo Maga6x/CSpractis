@@ -19,7 +19,8 @@ public class TaskRepository {
     }
 
     public void save(Task task) throws SQLException {
-        String sql = "INSERT INTO tasks (id, input_data, input_type, output_data, status) VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO tasks (id, input_data, input_type, output_data, status)" +
+                "VALUES (?, ?, ?, ?, ?)";
 
         try (PreparedStatement ps = connection.prepareStatement(sql)) {
             ps.setObject(1, task.getId());
@@ -32,6 +33,7 @@ public class TaskRepository {
     }
 
     public Task findById(UUID id) throws SQLException {
+
         String sql = "SELECT * FROM tasks WHERE id = ?";
 
         try (PreparedStatement ps = connection.prepareStatement(sql)) {
@@ -48,13 +50,12 @@ public class TaskRepository {
                 return task;
             }
         }
-
         return null;
     }
 
     public void updateStatus(UUID id, String status) throws SQLException {
-        String sql = "UPDATE tasks SET status = ? WHERE id = ?";
 
+        String sql = "UPDATE tasks SET status = ? WHERE id = ?";
         try (PreparedStatement ps = connection.prepareStatement(sql)) {
             ps.setString(1, status);
             ps.setObject(2, id);
@@ -63,6 +64,7 @@ public class TaskRepository {
     }
 
     public void updateResult(UUID id, String result, String status) throws SQLException {
+
         String sql = "UPDATE tasks SET output_data = ?, status = ? WHERE id = ?";
 
         try (PreparedStatement ps = connection.prepareStatement(sql)) {

@@ -24,27 +24,21 @@ public class Task {
     public UUID getId() {
         return id;
     }
-
     public void setId(UUID id) {
         this.id = id;
     }
-
     public String getInputData() {
         return inputData;
     }
-
     public void setInputData(String inputData) {
         this.inputData = inputData;
     }
-
     public String getInputType() {
         return inputType;
     }
-
     public void setInputType(String inputType) {
         this.inputType = inputType;
     }
-
     public String getOutputData() {
         return outputData;
     }
@@ -52,11 +46,9 @@ public class Task {
     public void setOutputData(String outputData) {
         this.outputData = outputData;
     }
-
     public TaskStatus getStatus() {
         return status;
     }
-
     public void setStatus(TaskStatus status) {
         this.status = status;
     }
